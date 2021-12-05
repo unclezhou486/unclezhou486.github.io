@@ -3,22 +3,25 @@
 <html class="article-header-style-default">
 <head>
 	
-	<title>Hello World - Hexo</title>
+	<title>OJ1223猴子选大王题解 - Hexo</title>
 	<meta charset="utf-8">
 	
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 	
-	<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+	<meta name="description" content="题目 猴群一共有 n 只猴子，现在它们要选出大王，具体方法是：所有猴子按位置 1- n 围坐成一圈，从第 1 个位置开始按顺序 1-m 报数，“1、2、3……m - 1、m”。报到 m 的猴子就要离开此圈，它下一个位置重新 1-m 报数。这样依次下来，直到只剩下最后一只猴子，则该猴子为大王。  你作为一只聪明的猴子，为了成为大王，最开始要坐在哪个位置呢？  输入  一行两个正整数，即 n、m。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2021/12/04/hello-world/index.html">
+<meta property="og:title" content="OJ1223猴子选大王题解">
+<meta property="og:url" content="http://example.com/2021/10/18/2021-10-18-%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="题目 猴群一共有 n 只猴子，现在它们要选出大王，具体方法是：所有猴子按位置 1- n 围坐成一圈，从第 1 个位置开始按顺序 1-m 报数，“1、2、3……m - 1、m”。报到 m 的猴子就要离开此圈，它下一个位置重新 1-m 报数。这样依次下来，直到只剩下最后一只猴子，则该猴子为大王。  你作为一只聪明的猴子，为了成为大王，最开始要坐在哪个位置呢？  输入  一行两个正整数，即 n、m。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-12-04T14:01:19.155Z">
-<meta property="article:modified_time" content="2021-10-24T00:49:58.881Z">
+<meta property="og:image" content="https://unclezhou.daihan.top/wp-content/uploads/2021/11/2021-10-18_%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B.png">
+<meta property="article:published_time" content="2021-10-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-28T03:15:14.753Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://unclezhou.daihan.top/wp-content/uploads/2021/11/2021-10-18_%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B.png">
 
 	<meta name="theme-color" content="#5e72e4">
 	<meta name="theme-color-rgb" content="94,114,228">
@@ -593,13 +596,13 @@
 	<article class="post post-full card bg-white shadow-sm border-0 ">
 	<header class="post-header text-center">
 		
-		<a class="post-title" href="/2021/12/04/hello-world/">Hello World</a>
+		<a class="post-title" href="/2021/10/18/2021-10-18-%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/">OJ1223猴子选大王题解</a>
 		<div class="post-meta">
 			
 						
 						<div class="post-meta-detail post-meta-detail-time">
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-12-4 22:01:19 | 编辑于 2021-10-24 8:49:58">2021-12-4 22:01
+							<time title="发布于 2021-10-18 0:00:00 | 编辑于 2021-11-28 11:15:14">2021-10-18 0:00
 							</time>
 						</div>
 					
@@ -618,7 +621,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-words">
 							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							121 字
+							227 字
 						</div>
 					
 						
@@ -634,19 +637,28 @@
 	</header>
 
 	<div class="post-content" id="post_content">
-		<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+		<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p> <em>猴群一共有 n 只猴子，现在它们要选出大王，具体方法是：所有猴子按位置 1- n 围坐成一圈，从第 1 个位置开始按顺序 1-m 报数，“1、2、3……m - 1、m”。报到 m 的猴子就要离开此圈，它下一个位置重新 1-m 报数。这样依次下来，直到只剩下最后一只猴子，则该猴子为大王。</em></p>
+<p> <em>你作为一只聪明的猴子，为了成为大王，最开始要坐在哪个位置呢？</em></p>
+<p> <em>输入</em></p>
+<p> <em>一行两个正整数，即 n、m。</em></p>
+<p> <em>输出</em></p>
+<p> <em>一个整数，即你最开始坐的位置（猴王位置）。</em></p>
+<p>有的人是第一次见这种题目，这题其实是经典的约瑟夫问题。故事背景什么的网上都可以搜到，这里就不再赘述。下面来讲解题方法。</p>
+<p> <em>示例输入 $  10$ $  3$</em><br> <em>输出$  4$</em></p>
+<h2 id="1-模拟法"><a href="#1-模拟法" class="headerlink" title="1.模拟法"></a>1.模拟法</h2><p> 由题意来进行模拟，定义一个变量为报的数，一个变量为报到的人，每次将报到3的人退出。在python里可以开一个列表，然后遍历列表，将报到3的人退出列表，如果遍历列表长度大于1，就再次遍历，直到列表里只剩下一个数（大概是这样，python也不是很会，差不多）。</p>
+<p> 这种能过数据较小的点，在题目里显然是不能拿到满分的。</p>
+<h2 id="2-公式"><a href="#2-公式" class="headerlink" title="2.公式"></a>2.公式</h2><p> 我们将每一次报数的顺序排出来，每有一个人报到3我们就重新开始报数，我们将每一次报数的顺序写出来，如下图：</p>
+<p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://unclezhou.daihan.top/wp-content/uploads/2021/11/2021-10-18_%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"></p>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p> 这里我们将第一个报到的人的下标记作0，方便后面的计算。</p>
+<p> 我们看看全局可以看到每一次下一轮开始报数的人一定是这一轮报到的人的下一个，这很显然是显而易见的。应该没问题吧。</p>
+<p> 那么我们可以从这一行所报的数字的位置而推断出上一行该数字的位置。就第10行为例好了，这个数是第10行的第一个数，那么就是上一行的报到的人的下一个，那么就应该是在第9行的第3个报到的人的后面，就是第九行第4个人，下标为3。</p>
+<p> 那么新的问题来了 有两个数按这个顺序排列 $10，4，10，4，10…，10，4$；那么第4个数第一次出现是在第1个数的位置还是在第2个数的位置呢？很明显除以数的个数取余（模）一下就可以找到对应的关系了，这里通过下标来表示，置于下表为什么要从零开始下面还会再讲，那么我们通过下标$3%2$即可获得它在第9层的下标,所以4在第9行第一次出现是在2这个位置，下标为1。知道了这个就可以让我们继续推它在上一层的位置了。推到第一层之后那么猴王在第一层的位置就确定了。</p>
+<p> 继续按照这样子推下去，4在第9层第一次出现是第2个数那么他在第8层就应该是$3+2=5$，第5个数，第8层一共有3个数，所以通过他的下标4%3=1即可获取他在第8层的下标；</p>
+<p> 如果下标从1开始的话基本步骤还是一样，只是当下标%数的个数时当余数为0时要进行特殊处理，第一次在0出现那么一共有n个数，所以第一次出现是在第n个数，由此看出下标从1开始需要进行特判，所以一般不采用这种方法。而如果下标从0开始就不会有这种情况，只需要最后求出最后一个人在第一轮的下标时加1就能获得该数。</p>
+<p> 所以说我们一直从下往上递推（指循环）就可以了，若有n个数，报到i的人退出，循环从下往上，将n-1层看成第2层，因为第n-1层有2个数方便计算，将第1层堪称第n层。因此层数=数的个数然后循环从第2层开始，计算公式：数在下一层的下标=（数在这一层的下标+i）%层数；</p>
+<p> 猴王在第1层下标为0，套入公式即可算出它在第n层也就是第一轮的下标，那么他的位置也就是下标加1。答案就出来了。</p>
+<p> <strong>（第一版）待完善，等下次有时间再说。</strong></p>
 
 	</div>
 
@@ -661,6 +673,11 @@
 
 	
 
+	
+		<div class="post-tags">
+			<i class="fa fa-tags" aria-hidden="true"></i>
+			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a>
+		</div>
 	
 </article>
 
@@ -701,7 +718,7 @@
 				<span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
 			</button>
 		</a>
-		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=http://example.com/2021/12/04/hello-world/&text=Hello World" tooltip="分享到 Telegram">
+		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=http://example.com/2021/10/18/2021-10-18-%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/&text=OJ1223猴子选大王题解" tooltip="分享到 Telegram">
 			<button class="btn btn-icon btn-primary" style="background: #42a5f5;border: none;">
 				<span class="btn-inner--icon"><i class="fa fa-telegram"></i></span>
 			</button>
@@ -718,11 +735,11 @@
 </div>
 <script type="text/javascript">
 	socialShare("#share", {
-	    title : 'Hello World',
-	    description : 'Welcome to Hexo! This is your very first post. Che...',
+	    title : 'OJ1223猴子选大王题解',
+	    description : '题目 猴群一共有 n 只猴子，现在它们要选出大王，具体方法是：所有猴子按位置 1- n 围坐成一圈，...',
 	    wechatQrcodeTitle : "分享到微信",
 	    wechatQrcodeHelper : '微信扫描二维码',
-	    source : 'http://example.com/2021/12/04/hello-world/'
+	    source : 'http://example.com/2021/10/18/2021-10-18-%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/'
 	});
 	$("#share_show")[0].onclick = function(){
 		$("#share_container").addClass("opened");
@@ -786,7 +803,7 @@
 </div>
 
 
-<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/2021/11/06/2021-11-06-%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E7%89%88(%E6%B4%9B%E8%B0%B7P3372)/" rel="next"> 线段树模板</a></div></div>
+<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"><span class="page-navigation-extra-text"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>上一篇</span><a href="/2021/10/22/2021-10-22-%E5%86%B3%E5%BF%83/" rel="prev"> 2021-10-22</a></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/2021/10/18/2021-11-21-linux%E5%AF%B9%E6%8B%8Dc++/" rel="next"> linux对拍c++</a></div></div>
 
 
 

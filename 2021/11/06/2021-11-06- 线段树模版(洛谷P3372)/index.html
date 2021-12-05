@@ -3,21 +3,22 @@
 <html class="article-header-style-default">
 <head>
 	
-	<title>Hello World - Hexo</title>
+	<title>线段树模板 - Hexo</title>
 	<meta charset="utf-8">
 	
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 	
-	<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+	<meta name="description" content="概述：    线段树是算法竞赛中常用的数据结构（虽然考场中很少用，毕竟调起来麻烦，区间求和用树状树组还是更加方便代码也短）。    线段树可以在O(logN)的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作。简略的描述一下算法思路，线段树是一个二叉树，树的每一个节点存储的都是一个区间内的值（根据具体的题目而定），每个父结点的值由两个子结点的值决定。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2021/12/04/hello-world/index.html">
+<meta property="og:title" content="线段树模板">
+<meta property="og:url" content="http://example.com/2021/11/06/2021-11-06-%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E7%89%88(%E6%B4%9B%E8%B0%B7P3372)/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="概述：    线段树是算法竞赛中常用的数据结构（虽然考场中很少用，毕竟调起来麻烦，区间求和用树状树组还是更加方便代码也短）。    线段树可以在O(logN)的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作。简略的描述一下算法思路，线段树是一个二叉树，树的每一个节点存储的都是一个区间内的值（根据具体的题目而定），每个父结点的值由两个子结点的值决定。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-12-04T14:01:19.155Z">
-<meta property="article:modified_time" content="2021-10-24T00:49:58.881Z">
+<meta property="article:published_time" content="2021-11-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-21T02:22:52.387Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
 
 	<meta name="theme-color" content="#5e72e4">
@@ -593,13 +594,13 @@
 	<article class="post post-full card bg-white shadow-sm border-0 ">
 	<header class="post-header text-center">
 		
-		<a class="post-title" href="/2021/12/04/hello-world/">Hello World</a>
+		<a class="post-title" href="/2021/11/06/2021-11-06-%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E7%89%88(%E6%B4%9B%E8%B0%B7P3372)/">线段树模板</a>
 		<div class="post-meta">
 			
 						
 						<div class="post-meta-detail post-meta-detail-time">
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-12-4 22:01:19 | 编辑于 2021-10-24 8:49:58">2021-12-4 22:01
+							<time title="发布于 2021-11-6 0:00:00 | 编辑于 2021-11-21 10:22:52">2021-11-6 0:00
 							</time>
 						</div>
 					
@@ -618,7 +619,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-words">
 							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							121 字
+							2.4k 字
 						</div>
 					
 						
@@ -626,7 +627,7 @@
 						
 						<div class="post-meta-detail post-meta-detail-readingtime">
 							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
+							11 分钟
 						</div>
 					
 		</div>
@@ -634,20 +635,300 @@
 	</header>
 
 	<div class="post-content" id="post_content">
-		<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+		<!-- wp:heading {"level":3} -->
+<h3>概述：</h3>
+<!-- /wp:heading -->
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<!-- wp:paragraph -->
+<p>线段树是算法竞赛中常用的数据结构（虽然考场中很少用，毕竟调起来麻烦，区间求和用树状树组还是更加方便代码也短）。</p>
+<!-- /wp:paragraph -->
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<!-- wp:paragraph -->
+<p>线段树可以在O(logN)的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作。简略的描述一下算法思路，线段树是一个二叉树，树的每一个节点存储的都是一个区间内的值（根据具体的题目而定），每个父结点的值由两个子结点的值决定。</p>
+<!-- /wp:paragraph -->
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<!-- wp:paragraph -->
+<p>但是普通的二分思想并不能体现线段树的精髓所在，线段树的精髓就在于它的懒标记，具体往下看。</p>
+<!-- /wp:paragraph -->
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<!-- wp:heading {"level":3} -->
+<h3>算法的实现：</h3>
+<!-- /wp:heading -->
 
+<!-- wp:paragraph -->
+<p>这里以洛谷P3372的区间求和为例</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":4} -->
+<h4>建树（build）</h4>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>struct segmentTree&#123;
+    int l,r; //查询的区间范围
+    long long sum ,lz; //区间和，懒标记
+&#125;t&#91;N&lt;&lt;2];//要开4*N的大小
+
+void build(int l,int r,int tr)&#123;
+    t&#91;tr].l=l;t&#91;tr].r=r;
+    if(l==r) &#123;t&#91;tr].sum=a&#91;l];return;&#125; //如果区间内只有一个树，则赋值，返回
+    int mid=(l+r)&gt;&gt;1;
+    build(l,mid,pl); //建左区间
+    build(mid+1,r,pr); //建有区间
+    pushup(tr); //关键操作
+&#125;</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading {"level":4} -->
+<h4>上放（pushup）</h4>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>void pushup(int tr)&#123;
+    t&#91;tr].sum=t&#91;pl].sum+t&#91;pr].sum; //由两个子结点的值更新父结点的值
+&#125;</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading {"level":4} -->
+<h4>下放（pushdown）</h4>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>
+void pushdown(int tr)&#123;
+    if(t&#91;tr].lz)&#123;
+        t&#91;pl].sum+=t&#91;tr].lz*(t&#91;pl].r-t&#91;pl].l+1);//左儿子的值加上懒标记的值*区间内数的个数
+        t&#91;pr].sum+=t&#91;tr].lz*(t&#91;pr].r-t&#91;pr].l+1);//右儿子的值加上懒标记的值*区间内树的个数
+        t&#91;pl].lz+=t&#91;tr].lz;//懒标记下放
+        t&#91;pr].lz+=t&#91;tr].lz;//懒标记下放
+        t&#91;tr].lz=0;//将父结点的懒标记清零
+    &#125;
+&#125;</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading {"level":4} -->
+<h4>更新（update）</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>update中的pushup()是我当时学习该算法时的没理解的一个地方，并不是直接更新每个结点的值，而是最后通过pushup()来更新父结点</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>
+void update(int l,int r,int tr,int num)&#123;
+    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r) &#123;t&#91;tr].sum+=num*(t&#91;tr].r-t&#91;tr].l+1);t&#91;tr].lz+=num;return;&#125;
+    pushdown(tr);//上一行是指如果该区间在查询区间内，则更新该区间值即懒标记，并且返回。（因为有懒标记），如果不包含则懒标记下放
+    int mid=(t&#91;tr].l+t&#91;tr].r)&gt;&gt;1;//二分
+    if(l&lt;=mid) update(l,r,pl,num); //如果左儿子一部分在查询区间内，更新左儿子
+    if(mid&lt;r) update(l,r,pr,num); //如果右儿子一部分在查询区间内，更新右儿子
+    pushup(tr);//关键的一步
+&#125;</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading {"level":4} -->
+<h4>查询（query）</h4>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>
+long long query(int l,int r,int tr)&#123;
+    long long ans=0;
+    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r) return t&#91;tr].sum;
+    pushdown(tr);
+    int mid=(t&#91;tr].l+t&#91;tr].r)&gt;&gt;1;
+    if(l&lt;=mid) ans+=query(l,r,pl);
+    if(mid&lt;r) ans+=query(l,r,pr);
+    return ans;
+&#125;</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading {"level":3} -->
+<h3>例题与示例程序：</h3>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":4} -->
+<h4>1.区间求和</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>洛谷<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3372">P3372 </a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#define pl tr&lt;&lt;1
+#define pr tr&lt;&lt;1|1
+using namespace std;
+const int N=1e5+10;
+int n,m,a&#91;100010],x,y,k,q;
+struct segmentTree&#123;
+    int l,r,lz;
+    long long sum;
+&#125;t&#91;N&lt;&lt;2];
+void pushup(int tr)&#123;
+    t&#91;tr].sum=t&#91;pl].sum+t&#91;pr].sum;
+&#125;
+void pushdown(int tr)&#123;
+    if(t&#91;tr].lz)&#123;
+        t&#91;pl].sum+=t&#91;tr].lz*(t&#91;pl].r-t&#91;pl].l+1);
+        t&#91;pr].sum+=t&#91;tr].lz*(t&#91;pr].r-t&#91;pr].l+1);
+        t&#91;pl].lz+=t&#91;tr].lz;
+        t&#91;pr].lz+=t&#91;tr].lz;
+        t&#91;tr].lz=0;
+    &#125;
+&#125;
+void build(int l,int r,int tr)&#123;
+    t&#91;tr].l=l,t&#91;tr].r=r;
+    if(l==r)&#123;t&#91;tr].sum=a&#91;r];return;&#125;
+    int mid=(l+r)&gt;&gt;1;
+    build(l,mid,pl);
+    build(mid+1,r,pr);
+    pushup(tr);
+&#125;
+void update(int l,int r,int tr,int num)&#123;
+    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r) &#123;t&#91;tr].sum+=num*(t&#91;tr].r-t&#91;tr].l+1);t&#91;tr].lz+=num;return;&#125;
+    pushdown(tr);
+    int mid=(t&#91;tr].r+t&#91;tr].l)&gt;&gt;1;
+    if(l&lt;=mid)update(l,r,pl,num);
+    if(mid&lt;r)update(l,r,pr,num);
+    pushup(tr);
+&#125;
+long long query(int l,int r,int tr)&#123;
+    long long ans=0;
+    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r) return t&#91;tr].sum;
+    pushdown(tr);
+    int mid=(t&#91;tr].r+t&#91;tr].l)&gt;&gt;1;
+    if(l&lt;=mid) ans+=query(l,r,pl);
+    if(mid&lt;r) ans+=query(l,r,pr);
+    return ans;
+&#125;
+int main()&#123;
+    scanf("%d%d",&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++)scanf("%d",&amp;a&#91;i]);
+        build(1,n,1);
+    for(int i=1;i&lt;=m;i++)&#123;
+        scanf("%d%d%d",&amp;q,&amp;x,&amp;y);
+        if(q==1)&#123;
+            scanf("%d",&amp;k);
+            update(x,y,1,k);
+        &#125;
+        else&#123;
+            printf("%lld\n",query(x,y,1));
+        &#125;
+    &#125;
+    return 0;
+&#125;</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading {"level":4} -->
+<h4>2.区间求乘积</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>洛谷<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3373">P3373</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;algorithm&gt;
+#define pl tr&lt;&lt;1
+#define pr tr&lt;&lt;1|1
+
+using namespace std;
+const int N=1e5+10;
+
+int n,m,p,x,y,k,q;
+int a&#91;N];
+struct segmentTree&#123;
+    int l,r;
+    long long sum,add=0,mul=1;//add=加,mul=乘
+&#125;t&#91;N&lt;&lt;2];
+void pushup(int tr)&#123;
+    t&#91;tr].sum=(t&#91;pl].sum+t&#91;pr].sum)%p;
+&#125;
+void pushdown(int tr)&#123;
+    t&#91;pl].sum=(t&#91;tr].add*(t&#91;pl].r-t&#91;pl].l+1)%p+(t&#91;pl].sum*t&#91;tr].mul)%p)%p;
+    t&#91;pr].sum=(t&#91;tr].add*(t&#91;pr].r-t&#91;pr].l+1)%p+(t&#91;pr].sum*t&#91;tr].mul)%p)%p;
+    t&#91;pl].add=(t&#91;tr].mul*t&#91;pl].add%p+t&#91;tr].add)%p;
+    t&#91;pl].mul=t&#91;tr].mul*t&#91;pl].mul%p;
+    t&#91;pr].add=(t&#91;tr].mul*t&#91;pr].add%p+t&#91;tr].add)%p;
+    t&#91;pr].mul=t&#91;tr].mul*t&#91;pr].mul%p;
+    t&#91;tr].add=0;t&#91;tr].mul=1;
+&#125;
+void build(int l,int r,int tr)&#123;
+    t&#91;tr].l=l;t&#91;tr].r=r;
+    if(l==r) &#123;t&#91;tr].sum=a&#91;l];return;&#125;
+    else&#123;
+        int mid=(l+r)&gt;&gt;1;
+        build(l,mid,pl);
+        build(mid+1,r,pr);
+        pushup(tr);
+    &#125;
+&#125;
+void update1(int l,int r,int tr,int k)&#123;//add
+    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r)&#123;
+        t&#91;tr].sum=(t&#91;tr].sum+k*(t&#91;tr].r-t&#91;tr].l+1)%p)%p;
+        t&#91;tr].add=(t&#91;tr].add+k%p)%p;
+        return;
+    &#125;
+    pushdown(tr);
+    int mid=(t&#91;tr].l+t&#91;tr].r)&gt;&gt;1;
+    if(l&lt;=mid) update1(l,r,pl,k);
+    if(mid&lt;r) update1(l,r,pr,k);
+    pushup(tr);
+&#125;
+void update2(int l,int r,int tr,int k)&#123;//mul
+    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r)&#123;
+        t&#91;tr].sum=(t&#91;tr].sum*k)%p;
+        t&#91;tr].add=(t&#91;tr].add*k)%p;
+        t&#91;tr].mul=(t&#91;tr].mul*k)%p;
+        return;
+    &#125;
+    pushdown(tr);
+    int mid=(t&#91;tr].l+t&#91;tr].r)&gt;&gt;1;
+    if(l&lt;=mid) update2(l,r,pl,k);
+    if(mid&lt;r) update2(l,r,pr,k);
+    pushup(tr);
+&#125;
+long long query(int l,int r,int tr)&#123;
+    long long ans=0;
+    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r) return t&#91;tr].sum;
+    int mid=(t&#91;tr].l+t&#91;tr].r)&gt;&gt;1;
+    pushdown(tr);
+    if(l&lt;=mid) ans+=query(l,r,pl);
+    if(mid&lt;r) ans+=query(l,r,pr);
+    return ans%p;
+&#125;
+int main()&#123;
+    scanf("%d%d%d",&amp;n,&amp;m,&amp;p);
+    for(int i=1;i&lt;=n;i++) scanf("%d",&amp;a&#91;i]);
+    build(1,n,1);
+    for(int i=1;i&lt;=m;i++)&#123;
+        scanf("%d%d%d",&amp;q,&amp;x,&amp;y);
+        if(q==1)&#123;
+            scanf("%d",&amp;k);
+            update2(x,y,1,k);
+        &#125;
+        else if(q==2)&#123;
+            scanf("%d",&amp;k);
+            update1(x,y,1,k);
+        &#125;
+        else &#123;
+            printf("%lld\n",query(x,y,1));
+        &#125;
+    &#125;
+    return 0;
+&#125;</code></pre>
+<!-- /wp:code -->
 	</div>
 
 	
@@ -661,6 +942,11 @@
 
 	
 
+	
+		<div class="post-tags">
+			<i class="fa fa-tags" aria-hidden="true"></i>
+			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
+		</div>
 	
 </article>
 
@@ -701,7 +987,7 @@
 				<span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
 			</button>
 		</a>
-		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=http://example.com/2021/12/04/hello-world/&text=Hello World" tooltip="分享到 Telegram">
+		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=http://example.com/2021/11/06/2021-11-06-%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E7%89%88(%E6%B4%9B%E8%B0%B7P3372)/&text=线段树模板" tooltip="分享到 Telegram">
 			<button class="btn btn-icon btn-primary" style="background: #42a5f5;border: none;">
 				<span class="btn-inner--icon"><i class="fa fa-telegram"></i></span>
 			</button>
@@ -718,11 +1004,16 @@
 </div>
 <script type="text/javascript">
 	socialShare("#share", {
-	    title : 'Hello World',
-	    description : 'Welcome to Hexo! This is your very first post. Che...',
+	    title : '线段树模板',
+	    description : '
+概述：
+
+
+
+线段树是算法竞赛中常用的数据结构（虽然考场中很少用，毕竟调起来麻烦，区间求和用树状树...',
 	    wechatQrcodeTitle : "分享到微信",
 	    wechatQrcodeHelper : '微信扫描二维码',
-	    source : 'http://example.com/2021/12/04/hello-world/'
+	    source : 'http://example.com/2021/11/06/2021-11-06-%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E7%89%88(%E6%B4%9B%E8%B0%B7P3372)/'
 	});
 	$("#share_show")[0].onclick = function(){
 		$("#share_container").addClass("opened");
@@ -786,7 +1077,7 @@
 </div>
 
 
-<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/2021/11/06/2021-11-06-%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E7%89%88(%E6%B4%9B%E8%B0%B7P3372)/" rel="next"> 线段树模板</a></div></div>
+<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"><span class="page-navigation-extra-text"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>上一篇</span><a href="/2021/12/04/hello-world/" rel="prev"> Hello World</a></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/2021/10/22/2021-10-22-%E5%86%B3%E5%BF%83/" rel="next"> 2021-10-22</a></div></div>
 
 
 

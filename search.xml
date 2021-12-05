@@ -15,6 +15,145 @@
     </entry>
     
     
+    
+    <entry>
+      <title>线段树模板</title>
+      <link href="/2021/11/06/2021-11-06-%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E7%89%88(%E6%B4%9B%E8%B0%B7P3372)/"/>
+      <url>/2021/11/06/2021-11-06-%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E7%89%88(%E6%B4%9B%E8%B0%B7P3372)/</url>
+      
+        <content type="html"><![CDATA[<!-- wp:heading {"level":3} --><h3>概述：</h3><!-- /wp:heading --><!-- wp:paragraph --><p>线段树是算法竞赛中常用的数据结构（虽然考场中很少用，毕竟调起来麻烦，区间求和用树状树组还是更加方便代码也短）。</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>线段树可以在O(logN)的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作。简略的描述一下算法思路，线段树是一个二叉树，树的每一个节点存储的都是一个区间内的值（根据具体的题目而定），每个父结点的值由两个子结点的值决定。</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>但是普通的二分思想并不能体现线段树的精髓所在，线段树的精髓就在于它的懒标记，具体往下看。</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3>算法的实现：</h3><!-- /wp:heading --><!-- wp:paragraph --><p>这里以洛谷P3372的区间求和为例</p><!-- /wp:paragraph --><!-- wp:heading {"level":4} --><h4>建树（build）</h4><!-- /wp:heading --><!-- wp:code --><pre class="wp-block-code"><code>struct segmentTree&#123;    int l,r; //查询的区间范围    long long sum ,lz; //区间和，懒标记&#125;t&#91;N&lt;&lt;2];//要开4*N的大小void build(int l,int r,int tr)&#123;    t&#91;tr].l=l;t&#91;tr].r=r;    if(l==r) &#123;t&#91;tr].sum=a&#91;l];return;&#125; //如果区间内只有一个树，则赋值，返回    int mid=(l+r)&gt;&gt;1;    build(l,mid,pl); //建左区间    build(mid+1,r,pr); //建有区间    pushup(tr); //关键操作&#125;</code></pre><!-- /wp:code --><!-- wp:heading {"level":4} --><h4>上放（pushup）</h4><!-- /wp:heading --><!-- wp:code --><pre class="wp-block-code"><code>void pushup(int tr)&#123;    t&#91;tr].sum=t&#91;pl].sum+t&#91;pr].sum; //由两个子结点的值更新父结点的值&#125;</code></pre><!-- /wp:code --><!-- wp:heading {"level":4} --><h4>下放（pushdown）</h4><!-- /wp:heading --><!-- wp:code --><pre class="wp-block-code"><code>void pushdown(int tr)&#123;    if(t&#91;tr].lz)&#123;        t&#91;pl].sum+=t&#91;tr].lz*(t&#91;pl].r-t&#91;pl].l+1);//左儿子的值加上懒标记的值*区间内数的个数        t&#91;pr].sum+=t&#91;tr].lz*(t&#91;pr].r-t&#91;pr].l+1);//右儿子的值加上懒标记的值*区间内树的个数        t&#91;pl].lz+=t&#91;tr].lz;//懒标记下放        t&#91;pr].lz+=t&#91;tr].lz;//懒标记下放        t&#91;tr].lz=0;//将父结点的懒标记清零    &#125;&#125;</code></pre><!-- /wp:code --><!-- wp:heading {"level":4} --><h4>更新（update）</h4><!-- /wp:heading --><!-- wp:paragraph --><p>update中的pushup()是我当时学习该算法时的没理解的一个地方，并不是直接更新每个结点的值，而是最后通过pushup()来更新父结点</p><!-- /wp:paragraph --><!-- wp:code --><pre class="wp-block-code"><code>void update(int l,int r,int tr,int num)&#123;    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r) &#123;t&#91;tr].sum+=num*(t&#91;tr].r-t&#91;tr].l+1);t&#91;tr].lz+=num;return;&#125;    pushdown(tr);//上一行是指如果该区间在查询区间内，则更新该区间值即懒标记，并且返回。（因为有懒标记），如果不包含则懒标记下放    int mid=(t&#91;tr].l+t&#91;tr].r)&gt;&gt;1;//二分    if(l&lt;=mid) update(l,r,pl,num); //如果左儿子一部分在查询区间内，更新左儿子    if(mid&lt;r) update(l,r,pr,num); //如果右儿子一部分在查询区间内，更新右儿子    pushup(tr);//关键的一步&#125;</code></pre><!-- /wp:code --><!-- wp:heading {"level":4} --><h4>查询（query）</h4><!-- /wp:heading --><!-- wp:code --><pre class="wp-block-code"><code>long long query(int l,int r,int tr)&#123;    long long ans=0;    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r) return t&#91;tr].sum;    pushdown(tr);    int mid=(t&#91;tr].l+t&#91;tr].r)&gt;&gt;1;    if(l&lt;=mid) ans+=query(l,r,pl);    if(mid&lt;r) ans+=query(l,r,pr);    return ans;&#125;</code></pre><!-- /wp:code --><!-- wp:heading {"level":3} --><h3>例题与示例程序：</h3><!-- /wp:heading --><!-- wp:heading {"level":4} --><h4>1.区间求和</h4><!-- /wp:heading --><!-- wp:paragraph --><p>洛谷<a href="https://www.luogu.com.cn/problem/P3372">P3372 </a></p><!-- /wp:paragraph --><!-- wp:paragraph --><p></p><!-- /wp:paragraph --><!-- wp:code --><pre class="wp-block-code"><code>#include &lt;iostream&gt;#include &lt;stdio.h&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#define pl tr&lt;&lt;1#define pr tr&lt;&lt;1|1using namespace std;const int N=1e5+10;int n,m,a&#91;100010],x,y,k,q;struct segmentTree&#123;    int l,r,lz;    long long sum;&#125;t&#91;N&lt;&lt;2];void pushup(int tr)&#123;    t&#91;tr].sum=t&#91;pl].sum+t&#91;pr].sum;&#125;void pushdown(int tr)&#123;    if(t&#91;tr].lz)&#123;        t&#91;pl].sum+=t&#91;tr].lz*(t&#91;pl].r-t&#91;pl].l+1);        t&#91;pr].sum+=t&#91;tr].lz*(t&#91;pr].r-t&#91;pr].l+1);        t&#91;pl].lz+=t&#91;tr].lz;        t&#91;pr].lz+=t&#91;tr].lz;        t&#91;tr].lz=0;    &#125;&#125;void build(int l,int r,int tr)&#123;    t&#91;tr].l=l,t&#91;tr].r=r;    if(l==r)&#123;t&#91;tr].sum=a&#91;r];return;&#125;    int mid=(l+r)&gt;&gt;1;    build(l,mid,pl);    build(mid+1,r,pr);    pushup(tr);&#125;void update(int l,int r,int tr,int num)&#123;    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r) &#123;t&#91;tr].sum+=num*(t&#91;tr].r-t&#91;tr].l+1);t&#91;tr].lz+=num;return;&#125;    pushdown(tr);    int mid=(t&#91;tr].r+t&#91;tr].l)&gt;&gt;1;    if(l&lt;=mid)update(l,r,pl,num);    if(mid&lt;r)update(l,r,pr,num);    pushup(tr);&#125;long long query(int l,int r,int tr)&#123;    long long ans=0;    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r) return t&#91;tr].sum;    pushdown(tr);    int mid=(t&#91;tr].r+t&#91;tr].l)&gt;&gt;1;    if(l&lt;=mid) ans+=query(l,r,pl);    if(mid&lt;r) ans+=query(l,r,pr);    return ans;&#125;int main()&#123;    scanf("%d%d",&amp;n,&amp;m);    for(int i=1;i&lt;=n;i++)scanf("%d",&amp;a&#91;i]);        build(1,n,1);    for(int i=1;i&lt;=m;i++)&#123;        scanf("%d%d%d",&amp;q,&amp;x,&amp;y);        if(q==1)&#123;            scanf("%d",&amp;k);            update(x,y,1,k);        &#125;        else&#123;            printf("%lld\n",query(x,y,1));        &#125;    &#125;    return 0;&#125;</code></pre><!-- /wp:code --><!-- wp:heading {"level":4} --><h4>2.区间求乘积</h4><!-- /wp:heading --><!-- wp:paragraph --><p>洛谷<a href="https://www.luogu.com.cn/problem/P3373">P3373</a></p><!-- /wp:paragraph --><!-- wp:code --><pre class="wp-block-code"><code>#include &lt;iostream&gt;#include &lt;stdio.h&gt;#include &lt;algorithm&gt;#define pl tr&lt;&lt;1#define pr tr&lt;&lt;1|1using namespace std;const int N=1e5+10;int n,m,p,x,y,k,q;int a&#91;N];struct segmentTree&#123;    int l,r;    long long sum,add=0,mul=1;//add=加,mul=乘&#125;t&#91;N&lt;&lt;2];void pushup(int tr)&#123;    t&#91;tr].sum=(t&#91;pl].sum+t&#91;pr].sum)%p;&#125;void pushdown(int tr)&#123;    t&#91;pl].sum=(t&#91;tr].add*(t&#91;pl].r-t&#91;pl].l+1)%p+(t&#91;pl].sum*t&#91;tr].mul)%p)%p;    t&#91;pr].sum=(t&#91;tr].add*(t&#91;pr].r-t&#91;pr].l+1)%p+(t&#91;pr].sum*t&#91;tr].mul)%p)%p;    t&#91;pl].add=(t&#91;tr].mul*t&#91;pl].add%p+t&#91;tr].add)%p;    t&#91;pl].mul=t&#91;tr].mul*t&#91;pl].mul%p;    t&#91;pr].add=(t&#91;tr].mul*t&#91;pr].add%p+t&#91;tr].add)%p;    t&#91;pr].mul=t&#91;tr].mul*t&#91;pr].mul%p;    t&#91;tr].add=0;t&#91;tr].mul=1;&#125;void build(int l,int r,int tr)&#123;    t&#91;tr].l=l;t&#91;tr].r=r;    if(l==r) &#123;t&#91;tr].sum=a&#91;l];return;&#125;    else&#123;        int mid=(l+r)&gt;&gt;1;        build(l,mid,pl);        build(mid+1,r,pr);        pushup(tr);    &#125;&#125;void update1(int l,int r,int tr,int k)&#123;//add    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r)&#123;        t&#91;tr].sum=(t&#91;tr].sum+k*(t&#91;tr].r-t&#91;tr].l+1)%p)%p;        t&#91;tr].add=(t&#91;tr].add+k%p)%p;        return;    &#125;    pushdown(tr);    int mid=(t&#91;tr].l+t&#91;tr].r)&gt;&gt;1;    if(l&lt;=mid) update1(l,r,pl,k);    if(mid&lt;r) update1(l,r,pr,k);    pushup(tr);&#125;void update2(int l,int r,int tr,int k)&#123;//mul    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r)&#123;        t&#91;tr].sum=(t&#91;tr].sum*k)%p;        t&#91;tr].add=(t&#91;tr].add*k)%p;        t&#91;tr].mul=(t&#91;tr].mul*k)%p;        return;    &#125;    pushdown(tr);    int mid=(t&#91;tr].l+t&#91;tr].r)&gt;&gt;1;    if(l&lt;=mid) update2(l,r,pl,k);    if(mid&lt;r) update2(l,r,pr,k);    pushup(tr);&#125;long long query(int l,int r,int tr)&#123;    long long ans=0;    if(l&lt;=t&#91;tr].l&amp;&amp;t&#91;tr].r&lt;=r) return t&#91;tr].sum;    int mid=(t&#91;tr].l+t&#91;tr].r)&gt;&gt;1;    pushdown(tr);    if(l&lt;=mid) ans+=query(l,r,pl);    if(mid&lt;r) ans+=query(l,r,pr);    return ans%p;&#125;int main()&#123;    scanf("%d%d%d",&amp;n,&amp;m,&amp;p);    for(int i=1;i&lt;=n;i++) scanf("%d",&amp;a&#91;i]);    build(1,n,1);    for(int i=1;i&lt;=m;i++)&#123;        scanf("%d%d%d",&amp;q,&amp;x,&amp;y);        if(q==1)&#123;            scanf("%d",&amp;k);            update2(x,y,1,k);        &#125;        else if(q==2)&#123;            scanf("%d",&amp;k);            update1(x,y,1,k);        &#125;        else &#123;            printf("%lld\n",query(x,y,1));        &#125;    &#125;    return 0;&#125;</code></pre><!-- /wp:code -->]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> c++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2021-10-22</title>
+      <link href="/2021/10/22/2021-10-22-%E5%86%B3%E5%BF%83/"/>
+      <url>/2021/10/22/2021-10-22-%E5%86%B3%E5%BF%83/</url>
+      
+        <content type="html"><![CDATA[<h1 id="2021-10-22-12-48-20-目送他人出发NOI，在此下定决心，明年，一定。"><a href="#2021-10-22-12-48-20-目送他人出发NOI，在此下定决心，明年，一定。" class="headerlink" title="2021.10.22.12:48:20 目送他人出发NOI，在此下定决心，明年，一定。"></a>2021.10.22.12:48:20 目送他人出发NOI，在此下定决心，明年，一定。</h1>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> OI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>OJ1223猴子选大王题解</title>
+      <link href="/2021/10/18/2021-10-18-%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/"/>
+      <url>/2021/10/18/2021-10-18-%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p> <em>猴群一共有 n 只猴子，现在它们要选出大王，具体方法是：所有猴子按位置 1- n 围坐成一圈，从第 1 个位置开始按顺序 1-m 报数，“1、2、3……m - 1、m”。报到 m 的猴子就要离开此圈，它下一个位置重新 1-m 报数。这样依次下来，直到只剩下最后一只猴子，则该猴子为大王。</em></p><p> <em>你作为一只聪明的猴子，为了成为大王，最开始要坐在哪个位置呢？</em></p><p> <em>输入</em></p><p> <em>一行两个正整数，即 n、m。</em></p><p> <em>输出</em></p><p> <em>一个整数，即你最开始坐的位置（猴王位置）。</em></p><p>有的人是第一次见这种题目，这题其实是经典的约瑟夫问题。故事背景什么的网上都可以搜到，这里就不再赘述。下面来讲解题方法。</p><p> <em>示例输入 $  10$ $  3$</em><br> <em>输出$  4$</em></p><h2 id="1-模拟法"><a href="#1-模拟法" class="headerlink" title="1.模拟法"></a>1.模拟法</h2><p> 由题意来进行模拟，定义一个变量为报的数，一个变量为报到的人，每次将报到3的人退出。在python里可以开一个列表，然后遍历列表，将报到3的人退出列表，如果遍历列表长度大于1，就再次遍历，直到列表里只剩下一个数（大概是这样，python也不是很会，差不多）。</p><p> 这种能过数据较小的点，在题目里显然是不能拿到满分的。</p><h2 id="2-公式"><a href="#2-公式" class="headerlink" title="2.公式"></a>2.公式</h2><p> 我们将每一次报数的顺序排出来，每有一个人报到3我们就重新开始报数，我们将每一次报数的顺序写出来，如下图：</p><p><img src="https://unclezhou.daihan.top/wp-content/uploads/2021/11/2021-10-18_%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B.png"></p><p> 这里我们将第一个报到的人的下标记作0，方便后面的计算。</p><p> 我们看看全局可以看到每一次下一轮开始报数的人一定是这一轮报到的人的下一个，这很显然是显而易见的。应该没问题吧。</p><p> 那么我们可以从这一行所报的数字的位置而推断出上一行该数字的位置。就第10行为例好了，这个数是第10行的第一个数，那么就是上一行的报到的人的下一个，那么就应该是在第9行的第3个报到的人的后面，就是第九行第4个人，下标为3。</p><p> 那么新的问题来了 有两个数按这个顺序排列 $10，4，10，4，10…，10，4$；那么第4个数第一次出现是在第1个数的位置还是在第2个数的位置呢？很明显除以数的个数取余（模）一下就可以找到对应的关系了，这里通过下标来表示，置于下表为什么要从零开始下面还会再讲，那么我们通过下标$3%2$即可获得它在第9层的下标,所以4在第9行第一次出现是在2这个位置，下标为1。知道了这个就可以让我们继续推它在上一层的位置了。推到第一层之后那么猴王在第一层的位置就确定了。</p><p> 继续按照这样子推下去，4在第9层第一次出现是第2个数那么他在第8层就应该是$3+2=5$，第5个数，第8层一共有3个数，所以通过他的下标4%3=1即可获取他在第8层的下标；</p><p> 如果下标从1开始的话基本步骤还是一样，只是当下标%数的个数时当余数为0时要进行特殊处理，第一次在0出现那么一共有n个数，所以第一次出现是在第n个数，由此看出下标从1开始需要进行特判，所以一般不采用这种方法。而如果下标从0开始就不会有这种情况，只需要最后求出最后一个人在第一轮的下标时加1就能获得该数。</p><p> 所以说我们一直从下往上递推（指循环）就可以了，若有n个数，报到i的人退出，循环从下往上，将n-1层看成第2层，因为第n-1层有2个数方便计算，将第1层堪称第n层。因此层数=数的个数然后循环从第2层开始，计算公式：数在下一层的下标=（数在这一层的下标+i）%层数；</p><p> 猴王在第1层下标为0，套入公式即可算出它在第n层也就是第一轮的下标，那么他的位置也就是下标加1。答案就出来了。</p><p> <strong>（第一版）待完善，等下次有时间再说。</strong></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 题解 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux对拍c++</title>
+      <link href="/2021/10/18/2021-11-21-linux%E5%AF%B9%E6%8B%8Dc++/"/>
+      <url>/2021/10/18/2021-11-21-linux%E5%AF%B9%E6%8B%8Dc++/</url>
+      
+        <content type="html"><![CDATA[<!-- wp:heading {"level":3} --><h3>概述</h3><!-- /wp:heading --><!-- wp:paragraph --><p><strong>以前对于对拍感觉不是很必要，但是今天在刷二分题目的时候对于二分的边界一直都不是很懂。所以在思考如何考虑这个问题的时候，想到另辟蹊径。既然我自己不知道二分是不是写对了，就让电脑来让我判断。所以我决定去网上学习对拍。</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>  <strong>      但是网上的对拍虽然可以实现判断程序的对错，但是却不能给出确切的每个程序的运行时间。在网上找的一些是用了clock()函数，然而这在程序中引入system()函数时，无法判断system()函数的运行时间，说人话就是clock()函数只能判断该程序中的函数的运行速度，运行其他程序的函数的时间不计算在时间内。所以我又找了许久，终于找到了一个勉强能用的函数gettimeofday</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>     <strong> 这个函数会计算从1970年1月1日00:00到现在的时间跨度(受不同时区影响)，函数的具体使用方式不是文章的主题，就先不赘述了。（事实是我这个蒟蒻不会写）</strong></p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3>实现方法:</h3><!-- /wp:heading --><!-- wp:paragraph --><p>以洛谷P1102这道二分题为例。</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3>暴力程序:</h3><!-- /wp:heading --><!-- wp:code --><pre class="wp-block-code"><code>#include &lt;iostream&gt;using namespace std;long long c&#91;200010];long long d;int main()&#123;    long long a,b;    scanf("%lld%lld",&amp;a,&amp;b);    for(int i=0;i&lt;a;i++)&#123;        scanf("%lld",&amp;c&#91;i]);    &#125;    for(int i=0;i&lt;a;i++)&#123;        for(int j=0;j&lt;a;j++)&#123;            if(c&#91;i]-c&#91;j]==b) d++;        &#125;    &#125;    printf("%lld",d);    return 0;&#125;</code></pre><!-- /wp:code --><!-- wp:heading {"level":3} --><h3>标程：</h3><!-- /wp:heading --><!-- wp:code --><pre class="wp-block-code"><code>#include &lt;iostream&gt;#include &lt;stdio.h&gt;#include &lt;algorithm&gt;using namespace std;long long n,c,a&#91;200010],ans=0;int main()&#123;    scanf("%lld%lld",&amp;n,&amp;c);    for(int i=1;i&lt;=n;i++) scanf("%lld",&amp;a&#91;i]);    sort(a+1,a+1+n);    for(int i=1;i&lt;=n;i++)&#123;        int l=1,r=n,j=a&#91;i];        while(l&lt;r)&#123;            int mid=(l+r)&gt;&gt;1;            if(a&#91;i]-a&#91;mid]&lt;=c)&#123;                r=mid;            &#125;            else l=mid+1;        &#125;        int l1=1,r1=n;        while(l1&lt;r1)&#123;            int mid=(l1+r1)&gt;&gt;1;            if(a&#91;i]-a&#91;mid]&gt;=c)&#123;                l1=mid+1;            &#125;            else r1=mid;        &#125;        ans+=l1-l;    &#125;    printf("%lld",ans);    return 0;&#125;</code></pre><!-- /wp:code --><!-- wp:heading {"level":3} --><h3>造数据：</h3><!-- /wp:heading --><!-- wp:code --><pre class="wp-block-code"><code>#include &lt;bits/stdc++.h&gt;using namespace std;const int mod=5e4; //数据大点可以发现明显超时，开小点就做个示范看看运行时间。const int m1=1e3;int main()&#123;    srand(time(0)); // c++输出随机数，不加这一行就会生成全部一样的数    int n=rand()%mod+1;    int m=rand()%m1;    printf("%d %d ",n,m);    for(int i=1;i&lt;=n;++i)&#123;        printf("%d ",rand()%m1);    &#125;    return 0;&#125;</code></pre><!-- /wp:code --><!-- wp:heading {"level":3} --><h3>用来对拍的程序：</h3><!-- /wp:heading --><!-- wp:code --><pre class="wp-block-code"><code>#include &lt;bits/stdc++.h&gt;#include &lt;sys/time.h&gt;using namespace std;int main()&#123;    struct timeval s1,s,e; //这个函数的格式就是这样    int t1,t2;    for(int i=1;i&lt;=1000;++i)&#123;        system("./make &gt;date.in");//重定向输出        gettimeofday(&amp;s1,NULL);        system("./b &lt;date.in &gt;1.out"); //重定向输入输出        gettimeofday(&amp;s,NULL);        system("./baoli &lt;date.in &gt;2.out");//重定向输入输出        gettimeofday(&amp;e,NULL);        t1=(s.tv_sec-s1.tv_sec)*1000+(s.tv_usec-s1.tv_usec)/1000; //把时间转化成毫秒        t2=(e.tv_sec-s.tv_sec)*1000+(e.tv_usec-s.tv_usec)/1000; //把时间转化成毫秒        if(system("diff 1.out 2.out"))&#123;            puts("WA");            return 0;        &#125;        else printf("AC,test point #%d,btime %dms ,baotime %dms\n",i,t1,t2);                                   //分别输出数据的组数，第一个程序的运行时间，第二个程序的运行时间。    &#125;&#125;</code></pre><!-- /wp:code --><!-- wp:heading {"level":3} --><h3>自动编译加运行的bash脚本：</h3><!-- /wp:heading --><!-- wp:code --><pre class="wp-block-code"><code>#! /bin/bashg++ baoli.cpp -o baolig++ b.cpp -o bg++ pai.cpp -o paig++ make.cpp -o make./pai</code></pre><!-- /wp:code --><!-- wp:heading {"level":3} --><h3>总结</h3><!-- /wp:heading --><!-- wp:paragraph --><p>大体上就是这样的，希望看到这篇文章的人以后二分再也不用担心</p><!-- /wp:paragraph -->]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> c++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>进制转换</title>
+      <link href="/2021/10/15/2021-10-15-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"/>
+      <url>/2021/10/15/2021-10-15-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/</url>
+      
+        <content type="html"><![CDATA[<p>1<font size =10><center> 超硬核进制转换</p><p>$　$<strong>众所周知，将二进制转化为十进制数十分的方便，而用十进制转换为二进制时，有一种方法，十分的方便．只需要将原数不断除以二的余数写下来后倒着遍历一遍就是二进制了。</strong></p><h1 id="例如-："><a href="#例如-：" class="headerlink" title="例如 ："></a><em>例如</em> ：</h1><p>   $ 　　$$7/2=3…1 $</p><p>   $ 　　$$3/2=1…1 $</p><p> $ 　　$$1/2=0…1 $</p><p> $ 　　$$所以7的二进制表示为111$</p><p>  原理：</p><p>$7的二进制表达为111$  </p><p>$7=111B$</p><p>$7=1\times2^2+1\times2^1+1\times2^0$</p><p>$7/2=1\times2^2/2+1\times2^1/2+1\times2^0/2$</p><p>##明显前面两项可以被除尽，而最后的$1\times2^0/2$无法被整除，因此会存在余数1，这个1就是$1\times2^0$，而$2^0$=1，所以$2^0$对取余数无影响,这个余数1就是该幂的系数1。所以这个1就是二进制的最后一位,那么去掉余数后原数变为3</p><p> $3=1\times2^1+1\times2^0$</p><p>$同理得余数为1$</p><p>$1=1*2^0$</p><p>这个例子可能还是有点难以理解，我们来看看其他进制如16进制<br>$首先16进制转10进制$</p><p>$A9=10\times16^1+9\times16^0=169$</p><p>$169=A9$ </p><p>$169/16=10…9$</p><p>$10/16=0…10$</p><p>$从下往上数，10为A，所以是A9$</p><p>$A9=10\times16^1+9\times16^0=169$</p><p>$169=10\times16^1+9\times16^0$</p><p>$169/16=10\times16^1/16+9\times16^0/16$</p><p>##$9\times16^0$无法被整除，因此余数为9（$16^0=1$,所以9$\times1%16=9$）这个余数9也就是系数9</p><p>$10=10\times16^0$</p><p>$10/16=10\times16^0/16$</p><p>##$余数为10，又因为在十六进制中10为A，所以为A9$</p><p>$每一步得出来的都是最后面的系数$<br>$所以把系数从下往上数加起来即可获得最后的数$</p><p>所以$169=A9$</p><h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1><h4 id="希望能够理解"><a href="#希望能够理解" class="headerlink" title="希望能够理解"></a>希望能够理解</h4>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>假期结束</title>
+      <link href="/2021/10/05/2021-10-07-%E7%BB%93%E6%9D%9F/"/>
+      <url>/2021/10/05/2021-10-07-%E7%BB%93%E6%9D%9F/</url>
+      
+        <content type="html"><![CDATA[<p><strong>已经结束了</strong></p><p>记个日程</p><p><strong>10.1</strong></p><p>休息</p><p><strong>10.2-10.3</strong></p><p>上午睡觉下午上课</p><p><strong>10.4-10.5</strong></p><p>一整天上课</p><p><strong>10.6</strong></p><p>起床后知道不用上课，想写作业结果却没有，搞了一天的博客，对，就是<strong>这个</strong></p><p><strong>10.7</strong></p><p>已经结束了</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2021.10.05集训</title>
+      <link href="/2021/10/05/2021-10-05-%E9%9B%86%E8%AE%AD%E4%BB%A3%E7%A0%812021.10.5/"/>
+      <url>/2021/10/05/2021-10-05-%E9%9B%86%E8%AE%AD%E4%BB%A3%E7%A0%812021.10.5/</url>
+      
+        <content type="html"><![CDATA[<p>T1<br>Stone.</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> ans=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n;</span><br><span class="line"><span class="keyword">double</span> a[<span class="number">100010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//freopen(&quot;stone.in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line"><span class="comment">//freopen(&quot;stone.ans&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;n);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>,&amp;a[i]);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">ans+=((a[i])/(a[i]+a[<span class="number">1</span>]));</span><br><span class="line">&#125;</span><br><span class="line">ans=ans+<span class="number">1</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.6lf&quot;</span>,ans);</span><br><span class="line"><span class="comment">//fclose(stdin);</span></span><br><span class="line"><span class="comment">//fclose(stdout);</span></span><br><span class="line">&#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> c++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
