@@ -3,17 +3,22 @@
 <html class="article-header-style-default">
 <head>
 	
-	<title>归档 : 2021 - Hexo</title>
+	<title>判断质数 - Hexo</title>
 	<meta charset="utf-8">
 	
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 	
-	<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+	<meta name="description" content="概述：以前刚开始学二分的时候，只知道二分就是一半一半的分下去，对于边界问题一直都不是很懂，之前为了避免这问题想着用一个对拍程序来查看自己写的是否是对的，但是想了想还是要想一个正解。 注意点:二分时主要是防止l和r的值都不发生改变，使得程序进入了死循环。 接下来是本人的一点理解。 本人理解：整数二分：找最大值：123456if(mid&lt;&#x3D;x) l&#x3D;mid;&#x2F;&#x2F;如果mid&lt;&#x3D;x，那么最优解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断质数">
+<meta property="og:url" content="http://example.com/2021/12/19/%E6%B5%85%E8%B0%88%E4%BA%8C%E5%88%86/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述：以前刚开始学二分的时候，只知道二分就是一半一半的分下去，对于边界问题一直都不是很懂，之前为了避免这问题想着用一个对拍程序来查看自己写的是否是对的，但是想了想还是要想一个正解。 注意点:二分时主要是防止l和r的值都不发生改变，使得程序进入了死循环。 接下来是本人的一点理解。 本人理解：整数二分：找最大值：123456if(mid&lt;&#x3D;x) l&#x3D;mid;&#x2F;&#x2F;如果mid&lt;&#x3D;x，那么最优解">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-19T04:30:09.915Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
 
 	<meta name="theme-color" content="#5e72e4">
@@ -426,14 +431,6 @@
 
 <div class="page-information-card-container">
 	
-		
-<div class="page-information-card card bg-gradient-secondary shadow-lg border-0">
-	<div class="card-body">
-		<h3 class="text-black">归档 : 2021 </h3>
-		
-	</div>
-</div>
-	
 </div>
 
 <div id="sidebar_mask"></div>
@@ -460,18 +457,39 @@
 		<div id="leftbar_part2" class="widget widget_search card bg-white shadow-sm border-0">
 			<div id="leftbar_part2_inner" class="card-body">
 				
-				<div class="nav-wrapper" style="padding-top: 5px; display:none; ">
+				<div class="nav-wrapper" style="padding-top: 5px;">
 	                <ul class="nav nav-pills nav-fill" role="tablist">
 						
+							<li class="nav-item sidebar-tab-switcher">
+								<a class="active show" id="leftbar_tab_catalog_btn" data-toggle="tab" href="#leftbar_tab_catalog" role="tab" aria-controls="leftbar_tab_catalog" no-pjax>文章目录</a>
+							</li>
+						
 						<li class="nav-item sidebar-tab-switcher">
-							<a class="active show" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
+							<a class="" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
 						</li>
 	                </ul>
 				</div>
 				<div>
 					<div class="tab-content" style="padding: 10px 10px 0 10px;">
 						
-						<div class="tab-pane fade text-center active show" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
+							<div class="tab-pane fade active show" id="leftbar_tab_catalog" role="tabpanel" aria-labelledby="leftbar_tab_catalog_btn">
+								<div id="leftbar_catalog"></div>
+								<script type="text/javascript">
+									$(function () {
+										$(document).headIndex({
+											articleWrapSelector: '#post_content',
+											indexBoxSelector: '#leftbar_catalog',
+											subItemBoxClass: "index-subItem-box",
+											itemClass: "index-item",
+											linkClass: "index-link",
+											offset: 80,
+										});
+									})
+								</script>
+								
+							</div>
+						
+						<div class="tab-pane fade text-center" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
 							<img id="leftbar_overview_author_image" src="/assets/img/auther.jpg" class="img-fluid rounded-circle shadow-sm" style="width: 100px;" alt="avatar">
 							<h6 id="leftbar_overview_author_name">Hexo</h6>
 							<nav class="site-state">
@@ -572,9 +590,8 @@
 	<main id="main" class="site-main" role="main">
 		
 		
-		
-				
-	<article class="post card bg-white shadow-sm border-0 ">
+			
+	<article class="post post-full card bg-white shadow-sm border-0 ">
 	<header class="post-header text-center">
 		
 		<a class="post-title" href="/2021/12/19/%E6%B5%85%E8%B0%88%E4%BA%8C%E5%88%86/">判断质数</a>
@@ -599,7 +616,7 @@
 							<div class="post-meta-devide">|</div>
 						
 						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
+							<i class="fa fa fa-book" aria-hidden="true"></i>
 							<span id="busuanzi_container_page_pv">
 								阅读<span id="busuanzi_value_page_pv"></span>次
 							</span>
@@ -625,16 +642,27 @@
 		
 	</header>
 
-	<div class="post-content">
-		
-			
-				概述：以前刚开始学二分的时候，只知道二分就是一半一半的分下去，对于边界问题一直都不是很懂，之前为了避免这问题想着用一个对拍程序来查看自己写的是否是对的，但是想了想还是要想一个正解。
-注意点:二分时主要是防止l和r的值都不发生改变，使得程序进入了死循环。
-接下来是本人的一点理解。
-本人理解：整数二分：找最大值：123456if(mid&lt;=x) ...
-			
-		
+	<div class="post-content" id="post_content">
+		<h2 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h2><p>以前刚开始学二分的时候，只知道二分就是一半一半的分下去，对于边界问题一直都不是很懂，之前为了避免这问题想着用一个对拍程序来查看自己写的是否是对的，但是想了想还是要想一个正解。</p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点:"></a>注意点:</h2><p>二分时主要是防止l和r的值都不发生改变，使得程序进入了死循环。</p>
+<p>接下来是本人的一点理解。</p>
+<h2 id="本人理解："><a href="#本人理解：" class="headerlink" title="本人理解："></a>本人理解：</h2><h2 id="整数二分："><a href="#整数二分：" class="headerlink" title="整数二分："></a>整数二分：</h2><h3 id="找最大值："><a href="#找最大值：" class="headerlink" title="找最大值："></a>找最大值：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span>(mid&lt;=x) l=mid;<span class="comment">//如果mid&lt;=x，那么最优解一定不在左区间</span></span><br><span class="line"><span class="keyword">else</span> r=mid<span class="number">-1</span>;<span class="comment">//如果mid&gt;x，那么x即其右区间都无解</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//为防止mid取到l或r时死循环</span></span><br><span class="line">mid=(l+r+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;<span class="comment">//取不到l,防止l=mid时死循环</span></span><br></pre></td></tr></table></figure>
+<h3 id="找最小值："><a href="#找最小值：" class="headerlink" title="找最小值："></a>找最小值：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(mid&lt;=x) r=mid;<span class="comment">//如果mid&gt;=x，那么最优解一定不在右区间</span></span><br><span class="line"><span class="keyword">else</span> l=mid+<span class="number">1</span>;<span class="comment">//如果mia&lt;x，那么x即其左区间无解</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//为防止mid取到l或r时死循环</span></span><br><span class="line">mid=(l+r)&gt;&gt;<span class="number">1</span>;<span class="comment">//取不到r，防止r=mid时陷入死循环</span></span><br></pre></td></tr></table></figure>
+<h2 id="实数二分："><a href="#实数二分：" class="headerlink" title="实数二分："></a>实数二分：</h2><p>不用考虑死循环的情况，主要需要考虑精度问题。</p>
+<h2 id="三分求单峰函数极值："><a href="#三分求单峰函数极值：" class="headerlink" title="三分求单峰函数极值："></a>三分求单峰函数极值：</h2><p>只适用于有单调性的函数，如$y=x^2$类似的二次函数，通过三分确定趋势，从而确定最终极值。</p>
+
 	</div>
+
+	
+		<div class="post-donate">
+			<button class="btn donate-btn btn-danger">赞赏</button>
+			<div class="donate-qrcode card shadow-sm bg-white">
+				<img src="/assets/img/1.jpg">
+			</div>
+		</div>
+	
+
+	
 
 	
 		<div class="post-tags">
@@ -644,601 +672,134 @@
 	
 </article>
 
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/12/19/%E5%88%A4%E6%96%AD%E8%B4%A8%E6%95%B0/">判断质数</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-12-19 0:00:00 | 编辑于 2021-12-19 12:30:03">2021-12-19 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-categories">
-							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-							<a class="post-meta-detail-catagory-link" href="/categories/OI/">OI</a>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							865 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							4 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				质数定义：一个数只能被1和自己整除，即因数只有1和本身
-1.试除法 $O(\sqrt{N})$通过定义，我们清楚地明白，对于一个数n，我们只要判断它的因数有几个，就可以判断它是不是质数了。那么我们只要判断n能否整除2到n-1这个区间中的一个整数即可判断。
-但是在数据过大时会有超时的现象，这时我们可以进行优化。
-一个数n若能被a整除(a不为1或n)，...
-			
-		
+	<div id="share_container">
+	<div id="share" data-initialized="true">
+		<a class="no-pjax icon-wechat" tooltip="分享到微信">
+			<button class="btn btn-icon btn-success">
+				<span class="btn-inner--icon"><i class="fa fa-weixin"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-douban" tooltip="分享到豆瓣">
+			<button class="btn btn-icon btn-primary" style="background: #209261;border: none;">
+				豆
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qq" tooltip="分享到 QQ">
+			<button class="btn btn-icon btn-primary" style="background: #2196f3;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-qq"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qzone" tooltip="分享到 QQ 空间">
+			<button class="btn btn-icon btn-primary" style="background: #ffc107;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-star"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-weibo" tooltip="分享到微博">
+			<button class="btn btn-icon btn-warning">
+				<span class="btn-inner--icon"><i class="fa fa-weibo"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-facebook" tooltip="分享到 Facebook">
+			<button class="btn btn-icon btn-primary" style="background: #283593;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-facebook"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-twitter" tooltip="分享到 Twitter">
+			<button class="btn btn-icon btn-primary" style="background: #03a9f4;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=http://example.com/2021/12/19/%E6%B5%85%E8%B0%88%E4%BA%8C%E5%88%86/&text=判断质数" tooltip="分享到 Telegram">
+			<button class="btn btn-icon btn-primary" style="background: #42a5f5;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-telegram"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-copy-link" id="share_copy_link" tooltip="复制链接">
+			<button class="btn btn-icon btn-default">
+				<span class="btn-inner--icon"><i class="fa fa-link"></i></span>
+			</button>
+		</a>
 	</div>
+	<button id="share_show" class="btn btn-icon btn-primary" tooltip="分享">
+		<span class="btn-inner--icon"><i class="fa fa-share"></i></span>
+	</button>
+</div>
+<script type="text/javascript">
+	socialShare("#share", {
+	    title : '判断质数',
+	    description : '概述：以前刚开始学二分的时候，只知道二分就是一半一半的分下去，对于边界问题一直都不是很懂，之前为了避...',
+	    wechatQrcodeTitle : "分享到微信",
+	    wechatQrcodeHelper : '微信扫描二维码',
+	    source : 'http://example.com/2021/12/19/%E6%B5%85%E8%B0%88%E4%BA%8C%E5%88%86/'
+	});
+	$("#share_show")[0].onclick = function(){
+		$("#share_container").addClass("opened");
+	};
+	$("#share_copy_link")[0].onclick = function(){
+		let input = document.createElement('input');
+		document.body.appendChild(input);
+		input.setAttribute("value", window.location.href);
+		input.setAttribute("readonly", "readonly");
+		input.setAttribute("style", "opacity: 0;mouse-events:none;");
+		input.select();
+		if (document.execCommand('copy')){
+			iziToast.show({
+				title: '链接已复制',
+				message: "链接已复制到剪贴板",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#2dce89',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-check',
+				timeout: 5000
+			});
+		}else{
+			iziToast.show({
+				title: '复制失败',
+				message: "请手动复制链接",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#f5365c',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-close',
+				timeout: 5000
+			});
+		}
+		document.body.removeChild(input);
+	};
+</script>
 
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
-		</div>
-	
-</article>
+
+<div id="post_comment" class="card shadow-sm">
+	<div id="gitalk-container"></div>
+<script type="text/javascript">
+	var gitalk = new Gitalk({
+		clientID: '',
+		clientSecret: '',
+		repo: '',
+		owner: '',
+		admin: [''],
+		id: location.pathname,
+		distractionFreeMode: false
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+</div>
 
 
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
+<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/2021/12/19/%E5%88%A4%E6%96%AD%E8%B4%A8%E6%95%B0/" rel="next"> 判断质数</a></div></div>
+
+
+
 		
-		<a class="post-title" href="/2021/12/19/%E6%9C%80%E5%A4%A7%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">判断质数</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-12-19 0:00:00 | 编辑于 2021-12-19 12:30:13">2021-12-19 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-categories">
-							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-							<a class="post-meta-detail-catagory-link" href="/categories/OI/">OI</a>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							323 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
 		
-	</header>
-
-	<div class="post-content">
-		
-			
-				1.向上标记法最朴素的求最近公共祖先的方法，两个子结点同时向上一个一个的跳，标记已经跳过的点，如果有一个点跳到了已经标记过的点，那么就说明这个点就是最近公共祖先。可以自己简单的推一下，查询的时间复杂度为 $ O(n) $ 。
-2.倍增总思路：用类似于二进制拆分的思想。
-首先我们先理清楚二进制数的特点，对于一个数$2^n$，我们可以用$2^0,2^1...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/12/04/hello-world/">Hello World</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-12-4 22:01:19 | 编辑于 2021-10-24 8:49:58">2021-12-4 22:01
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							121 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you ca...
-			
-		
-	</div>
-
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/11/06/2021-11-06-%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E7%89%88(%E6%B4%9B%E8%B0%B7P3372)/">线段树模板</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-11-6 0:00:00 | 编辑于 2021-11-21 10:22:52">2021-11-6 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							2.4k 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							11 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				
-概述：
-
-
-
-线段树是算法竞赛中常用的数据结构（虽然考场中很少用，毕竟调起来麻烦，区间求和用树状树组还是更加方便代码也短）。
-
-
-
-线段树可以在O(logN)的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作。简略的描述一下算法思路，线段树是一个二叉树，树的每一个节点存储的都是一个区间内的值（根据具体的题...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/10/22/2021-10-22-%E5%86%B3%E5%BF%83/">2021-10-22</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-10-22 0:00:00 | 编辑于 2021-10-23 22:03:20">2021-10-22 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							23 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				2021.10.22.12:48:20 目送他人出发NOI，在此下定决心，明年，一定。
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/OI/" rel="tag">OI</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/10/18/2021-10-18-%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/">OJ1223猴子选大王题解</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-10-18 0:00:00 | 编辑于 2021-11-28 11:15:14">2021-10-18 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							227 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				题目 猴群一共有 n 只猴子，现在它们要选出大王，具体方法是：所有猴子按位置 1- n 围坐成一圈，从第 1 个位置开始按顺序 1-m 报数，“1、2、3……m - 1、m”。报到 m 的猴子就要离开此圈，它下一个位置重新 1-m 报数。这样依次下来，直到只剩下最后一只猴子，则该猴子为大王。
- 你作为一只聪明的猴子，为了成为大王，最开始要坐在哪个位...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/10/18/2021-11-21-linux%E5%AF%B9%E6%8B%8Dc++/">linux对拍c++</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-10-18 0:00:00 | 编辑于 2021-11-21 10:22:41">2021-10-18 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							785 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							3 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				
-概述
-
-
-
-以前对于对拍感觉不是很必要，但是今天在刷二分题目的时候对于二分的边界一直都不是很懂。所以在思考如何考虑这个问题的时候，想到另辟蹊径。既然我自己不知道二分是不是写对了，就让电脑来让我判断。所以我决定去网上学习对拍。
-
-
-
-        但是网上的对拍虽然可以实现判断程序的对错，但是却不能给出确切的每个程序的运行时间。在网上找的一些是用...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/10/15/2021-10-15-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">进制转换</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-10-15 0:00:00 | 编辑于 2021-10-23 22:03:20">2021-10-15 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							322 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				1 超硬核进制转换
-$　$众所周知，将二进制转化为十进制数十分的方便，而用十进制转换为二进制时，有一种方法，十分的方便．只需要将原数不断除以二的余数写下来后倒着遍历一遍就是二进制了。
-例如 ：   $ 　　$$7/2=3…1 $
-   $ 　　$$3/2=1…1 $
- $ 　　$$1/2=0…1 $
- $ 　　$$所以7的二进制表示为111$
-  ...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/10/05/2021-10-05-%E9%9B%86%E8%AE%AD%E4%BB%A3%E7%A0%812021.10.5/">2021.10.05集训</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-10-5 0:00:00 | 编辑于 2021-10-24 9:34:15">2021-10-5 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-categories">
-							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-							<a class="post-meta-detail-catagory-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							214 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				T1Stone.
-1234567891011121314151617181920212223242526#include &lt;iostream&gt;#include &lt;stdio.h&gt;#include &lt;algorithm&gt;using namespace std;double ans=0;long long n;dou...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
-		</div>
-	
-</article>
-
-
-
-<nav><ul class="pagination"><li class="page-item active"><span class="page-link" style="cursor: default;">1</span></li><li class="page-item"><a class="page-link" href="/archives/2021/page/2/">2</a></li><li class="page-item"><a aria-label="Next Page" class="page-link" href="/archives/2021/page/2/"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li></ul></nav><nav><ul class="pagination pagination-mobile"><li class="page-item active"><span class="page-link" style="cursor: default;">1</span></li><li class="page-item"><a class="page-link" href="/archives/2021/page/2/">2</a></li><li class="page-item"><a aria-label="Next Page" class="page-link" href="/archives/2021/page/2/"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li></ul></nav>
-
-			
 		
 		
 

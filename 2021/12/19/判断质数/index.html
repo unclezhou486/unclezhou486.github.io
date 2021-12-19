@@ -3,17 +3,22 @@
 <html class="article-header-style-default">
 <head>
 	
-	<title>归档 : 2021 - Hexo</title>
+	<title>判断质数 - Hexo</title>
 	<meta charset="utf-8">
 	
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 	
-	<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+	<meta name="description" content="质数定义：一个数只能被1和自己整除，即因数只有1和本身 1.试除法 $O(\sqrt{N})$通过定义，我们清楚地明白，对于一个数n，我们只要判断它的因数有几个，就可以判断它是不是质数了。那么我们只要判断n能否整除2到n-1这个区间中的一个整数即可判断。 但是在数据过大时会有超时的现象，这时我们可以进行优化。 一个数n若能被a整除(a不为1或n)，则一定存在一个a使得a小于$\sqrt{n}$。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断质数">
+<meta property="og:url" content="http://example.com/2021/12/19/%E5%88%A4%E6%96%AD%E8%B4%A8%E6%95%B0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="质数定义：一个数只能被1和自己整除，即因数只有1和本身 1.试除法 $O(\sqrt{N})$通过定义，我们清楚地明白，对于一个数n，我们只要判断它的因数有几个，就可以判断它是不是质数了。那么我们只要判断n能否整除2到n-1这个区间中的一个整数即可判断。 但是在数据过大时会有超时的现象，这时我们可以进行优化。 一个数n若能被a整除(a不为1或n)，则一定存在一个a使得a小于$\sqrt{n}$。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-19T04:30:03.814Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
 
 	<meta name="theme-color" content="#5e72e4">
@@ -426,14 +431,6 @@
 
 <div class="page-information-card-container">
 	
-		
-<div class="page-information-card card bg-gradient-secondary shadow-lg border-0">
-	<div class="card-body">
-		<h3 class="text-black">归档 : 2021 </h3>
-		
-	</div>
-</div>
-	
 </div>
 
 <div id="sidebar_mask"></div>
@@ -460,18 +457,39 @@
 		<div id="leftbar_part2" class="widget widget_search card bg-white shadow-sm border-0">
 			<div id="leftbar_part2_inner" class="card-body">
 				
-				<div class="nav-wrapper" style="padding-top: 5px; display:none; ">
+				<div class="nav-wrapper" style="padding-top: 5px;">
 	                <ul class="nav nav-pills nav-fill" role="tablist">
 						
+							<li class="nav-item sidebar-tab-switcher">
+								<a class="active show" id="leftbar_tab_catalog_btn" data-toggle="tab" href="#leftbar_tab_catalog" role="tab" aria-controls="leftbar_tab_catalog" no-pjax>文章目录</a>
+							</li>
+						
 						<li class="nav-item sidebar-tab-switcher">
-							<a class="active show" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
+							<a class="" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
 						</li>
 	                </ul>
 				</div>
 				<div>
 					<div class="tab-content" style="padding: 10px 10px 0 10px;">
 						
-						<div class="tab-pane fade text-center active show" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
+							<div class="tab-pane fade active show" id="leftbar_tab_catalog" role="tabpanel" aria-labelledby="leftbar_tab_catalog_btn">
+								<div id="leftbar_catalog"></div>
+								<script type="text/javascript">
+									$(function () {
+										$(document).headIndex({
+											articleWrapSelector: '#post_content',
+											indexBoxSelector: '#leftbar_catalog',
+											subItemBoxClass: "index-subItem-box",
+											itemClass: "index-item",
+											linkClass: "index-link",
+											offset: 80,
+										});
+									})
+								</script>
+								
+							</div>
+						
+						<div class="tab-pane fade text-center" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
 							<img id="leftbar_overview_author_image" src="/assets/img/auther.jpg" class="img-fluid rounded-circle shadow-sm" style="width: 100px;" alt="avatar">
 							<h6 id="leftbar_overview_author_name">Hexo</h6>
 							<nav class="site-state">
@@ -572,80 +590,8 @@
 	<main id="main" class="site-main" role="main">
 		
 		
-		
-				
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/12/19/%E6%B5%85%E8%B0%88%E4%BA%8C%E5%88%86/">判断质数</a>
-		<div class="post-meta">
 			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-12-19 0:00:00 | 编辑于 2021-12-19 12:30:09">2021-12-19 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-categories">
-							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-							<a class="post-meta-detail-catagory-link" href="/categories/OI/">OI</a>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							140 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				概述：以前刚开始学二分的时候，只知道二分就是一半一半的分下去，对于边界问题一直都不是很懂，之前为了避免这问题想着用一个对拍程序来查看自己写的是否是对的，但是想了想还是要想一个正解。
-注意点:二分时主要是防止l和r的值都不发生改变，使得程序进入了死循环。
-接下来是本人的一点理解。
-本人理解：整数二分：找最大值：123456if(mid&lt;=x) ...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
+	<article class="post post-full card bg-white shadow-sm border-0 ">
 	<header class="post-header text-center">
 		
 		<a class="post-title" href="/2021/12/19/%E5%88%A4%E6%96%AD%E8%B4%A8%E6%95%B0/">判断质数</a>
@@ -670,7 +616,7 @@
 							<div class="post-meta-devide">|</div>
 						
 						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
+							<i class="fa fa fa-book" aria-hidden="true"></i>
 							<span id="busuanzi_container_page_pv">
 								阅读<span id="busuanzi_value_page_pv"></span>次
 							</span>
@@ -696,16 +642,43 @@
 		
 	</header>
 
-	<div class="post-content">
-		
-			
-				质数定义：一个数只能被1和自己整除，即因数只有1和本身
-1.试除法 $O(\sqrt{N})$通过定义，我们清楚地明白，对于一个数n，我们只要判断它的因数有几个，就可以判断它是不是质数了。那么我们只要判断n能否整除2到n-1这个区间中的一个整数即可判断。
-但是在数据过大时会有超时的现象，这时我们可以进行优化。
-一个数n若能被a整除(a不为1或n)，...
-			
-		
+	<div class="post-content" id="post_content">
+		<p>质数定义：一个数只能被1和自己整除，即因数只有1和本身</p>
+<h2 id="1-试除法-O-sqrt-N"><a href="#1-试除法-O-sqrt-N" class="headerlink" title="1.试除法 $O(\sqrt{N})$"></a>1.试除法 $O(\sqrt{N})$</h2><p>通过定义，我们清楚地明白，对于一个数n，我们只要判断它的因数有几个，就可以判断它是不是质数了。那么我们只要判断n能否整除2到n-1这个区间中的一个整数即可判断。</p>
+<p>但是在数据过大时会有超时的现象，这时我们可以进行优化。</p>
+<p>一个数n若能被a整除(a不为1或n)，则一定存在一个a使得a小于$\sqrt{n}$。</p>
+<p>n/a=b（a，b均为整数）</p>
+<p>证：如果a$\leq$$\sqrt{n}$，显然成立，如果a大于$\sqrt{n}$，则b一定小于$\sqrt{n}$，假设成立。</p>
+<p>综上所述，一个不是质数的数一定存在一个小于等于$\sqrt{n}$的因数。</p>
+<p>所以在判断一个数是否是指数是，只需判断[2,\sqrt{n}]是否存在一个数为n的因数，即是否存在一个数能整除n即可。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> n,a,b;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        b=<span class="number">1</span>;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=a/i;i++)&#123;<span class="comment">//i&lt;=a/i可以防止i*i过大，如果循环判断条件为i*i&lt;=a，会出现i*i爆的现象</span></span><br><span class="line">            <span class="keyword">if</span>(a%i==<span class="number">0</span>) &#123;</span><br><span class="line">            b=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(b==<span class="number">1</span>&amp;&amp;a!=<span class="number">1</span>) cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;No&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Eratoshenes-埃氏筛-："><a href="#2-Eratoshenes-埃氏筛-：" class="headerlink" title="2.Eratoshenes(埃氏筛)："></a>2.Eratoshenes(埃氏筛)：</h2><p>用试除法在只判断一个数时，$O(N)$的复杂度自然是较优的，但是当判断的数较多时，显然是会超时的，这里介绍一下埃氏筛。</p>
+<p>埃氏筛是一种复杂度接近线性筛的算法。 时间复杂度$O(NloglogN)$</p>
+<h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p>通过对质数概念的讲解，我们清晰地明白，一个数是质数，当且仅当它的因数只有1以及本身。那么换种说法，相当于一个数如果是质数，那么它一定是小于它的某个数（除1以外）的倍数。那么代码就很好写了，我们只要把所有&lt;=N的数的倍数都标记成非质数即可。</p>
+<p>对于这个算法，我们可以进行进一步优化。在讲解试除法时，我们明白，如果一个数a不是质数，那么它一定有一个小于$\sqrt{a}$的因数b，并且它一定是这个因数b大于或等于$\sqrt{b}$的倍数，所以对于一个非质数a，一定有一个小于$\sqrt{a}$的因数b，使得$b \times c$等于a，（c&gt;=b）所以对于第二层循环我们就可以进行优化。只要从$b^2$开始即$b \times b$开始筛即可。</p>
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,ans;</span><br><span class="line"><span class="keyword">bool</span> a[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shai</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;=N/i;j++)&#123;</span><br><span class="line">            a[i*j]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-线性筛"><a href="#3-线性筛" class="headerlink" title="3.线性筛"></a>3.线性筛</h2><p>埃氏筛之所以会有重复筛的情况，就是因为一个数的因数搭配不唯一，一个人数有多种因数搭配。</p>
+<p>如：$16=2 \times 8=4 \ times 4=8 \times 2$，虽然我们通过一部分优化省去了一些不必要的循环，但是还是没有达到真正的线性筛。那么重要的就是要找到唯一的可以确定一个数的因数搭配的方法，这就是用质因数来确认一个数。</p>
+<p>如$16=2 \times 2 \times 2 \times 2$</p>
+<p>$12=2 \times 2 \times 3$</p>
+<p>$24=2 \times 2 \times 2 \times 3$</p>
+<p>那么思路就很清晰了，分解质因数中每个数的质因子一定都是质数，质数的最小质因子就是它本身。</p>
+<p>算法思路：运用一个整型数组v[N]来表示每个数的最小质因子，初始时全部为0.再运用一个数组prime[]，来表示第几个质数是多少。</p>
+<h3 id="代码解释："><a href="#代码解释：" class="headerlink" title="代码解释："></a>代码解释：</h3><p>第一层循环i从2到n，表示目前在筛的数，如果v[i]为0，则表示i没被小于i的数筛过，因此i为质数，此时v[i]=i,prime[++m]=i;第二层循环从prime[1]到prime[m]，及现在筛出来的质数。如果prime[i]&gt;v[i]，即该质数大于i的最小质因子，此时没有进行的必要，因为之后或者之前肯定已经筛过了，这样会导致重复。此时直接break即可，如果i$\times$prime[m]超出了n的范围，那么也没必要再运行了，直接break即可。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>线性筛通过判断最小质因子是否为本身来判断质数。之后在循环中更新后续数的最小质因子，以此来维护整个数列。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e8</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> v[N];</span><br><span class="line"><span class="keyword">int</span> pri[N],cnt;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shai</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!v[i]) &#123;v[i]=i;pri[++cnt]=i;&#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pri[j]&gt;v[i]||pri[j]&gt;n/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pri[j]]=pri[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="built_in">shai</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,pri[n]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 	</div>
+
+	
+		<div class="post-donate">
+			<button class="btn donate-btn btn-danger">赞赏</button>
+			<div class="donate-qrcode card shadow-sm bg-white">
+				<img src="/assets/img/1.jpg">
+			</div>
+		</div>
+	
+
+	
 
 	
 		<div class="post-tags">
@@ -715,530 +688,135 @@
 	
 </article>
 
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/12/19/%E6%9C%80%E5%A4%A7%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">判断质数</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-12-19 0:00:00 | 编辑于 2021-12-19 12:30:13">2021-12-19 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-categories">
-							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-							<a class="post-meta-detail-catagory-link" href="/categories/OI/">OI</a>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							323 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				1.向上标记法最朴素的求最近公共祖先的方法，两个子结点同时向上一个一个的跳，标记已经跳过的点，如果有一个点跳到了已经标记过的点，那么就说明这个点就是最近公共祖先。可以自己简单的推一下，查询的时间复杂度为 $ O(n) $ 。
-2.倍增总思路：用类似于二进制拆分的思想。
-首先我们先理清楚二进制数的特点，对于一个数$2^n$，我们可以用$2^0,2^1...
-			
-		
+	<div id="share_container">
+	<div id="share" data-initialized="true">
+		<a class="no-pjax icon-wechat" tooltip="分享到微信">
+			<button class="btn btn-icon btn-success">
+				<span class="btn-inner--icon"><i class="fa fa-weixin"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-douban" tooltip="分享到豆瓣">
+			<button class="btn btn-icon btn-primary" style="background: #209261;border: none;">
+				豆
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qq" tooltip="分享到 QQ">
+			<button class="btn btn-icon btn-primary" style="background: #2196f3;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-qq"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qzone" tooltip="分享到 QQ 空间">
+			<button class="btn btn-icon btn-primary" style="background: #ffc107;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-star"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-weibo" tooltip="分享到微博">
+			<button class="btn btn-icon btn-warning">
+				<span class="btn-inner--icon"><i class="fa fa-weibo"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-facebook" tooltip="分享到 Facebook">
+			<button class="btn btn-icon btn-primary" style="background: #283593;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-facebook"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-twitter" tooltip="分享到 Twitter">
+			<button class="btn btn-icon btn-primary" style="background: #03a9f4;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=http://example.com/2021/12/19/%E5%88%A4%E6%96%AD%E8%B4%A8%E6%95%B0/&text=判断质数" tooltip="分享到 Telegram">
+			<button class="btn btn-icon btn-primary" style="background: #42a5f5;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-telegram"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-copy-link" id="share_copy_link" tooltip="复制链接">
+			<button class="btn btn-icon btn-default">
+				<span class="btn-inner--icon"><i class="fa fa-link"></i></span>
+			</button>
+		</a>
 	</div>
+	<button id="share_show" class="btn btn-icon btn-primary" tooltip="分享">
+		<span class="btn-inner--icon"><i class="fa fa-share"></i></span>
+	</button>
+</div>
+<script type="text/javascript">
+	socialShare("#share", {
+	    title : '判断质数',
+	    description : '质数定义：一个数只能被1和自己整除，即因数只有1和本身
+1.试除法 $O(\sqrt{N})$通过定...',
+	    wechatQrcodeTitle : "分享到微信",
+	    wechatQrcodeHelper : '微信扫描二维码',
+	    source : 'http://example.com/2021/12/19/%E5%88%A4%E6%96%AD%E8%B4%A8%E6%95%B0/'
+	});
+	$("#share_show")[0].onclick = function(){
+		$("#share_container").addClass("opened");
+	};
+	$("#share_copy_link")[0].onclick = function(){
+		let input = document.createElement('input');
+		document.body.appendChild(input);
+		input.setAttribute("value", window.location.href);
+		input.setAttribute("readonly", "readonly");
+		input.setAttribute("style", "opacity: 0;mouse-events:none;");
+		input.select();
+		if (document.execCommand('copy')){
+			iziToast.show({
+				title: '链接已复制',
+				message: "链接已复制到剪贴板",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#2dce89',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-check',
+				timeout: 5000
+			});
+		}else{
+			iziToast.show({
+				title: '复制失败',
+				message: "请手动复制链接",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#f5365c',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-close',
+				timeout: 5000
+			});
+		}
+		document.body.removeChild(input);
+	};
+</script>
 
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
-		</div>
-	
-</article>
+
+<div id="post_comment" class="card shadow-sm">
+	<div id="gitalk-container"></div>
+<script type="text/javascript">
+	var gitalk = new Gitalk({
+		clientID: '',
+		clientSecret: '',
+		repo: '',
+		owner: '',
+		admin: [''],
+		id: location.pathname,
+		distractionFreeMode: false
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+</div>
 
 
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
+<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"><span class="page-navigation-extra-text"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>上一篇</span><a href="/2021/12/19/%E6%B5%85%E8%B0%88%E4%BA%8C%E5%88%86/" rel="prev"> 判断质数</a></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/2021/12/19/%E6%9C%80%E5%A4%A7%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" rel="next"> 判断质数</a></div></div>
+
+
+
 		
-		<a class="post-title" href="/2021/12/04/hello-world/">Hello World</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-12-4 22:01:19 | 编辑于 2021-10-24 8:49:58">2021-12-4 22:01
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							121 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
 		
-	</header>
-
-	<div class="post-content">
-		
-			
-				Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you ca...
-			
-		
-	</div>
-
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/11/06/2021-11-06-%20%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E7%89%88(%E6%B4%9B%E8%B0%B7P3372)/">线段树模板</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-11-6 0:00:00 | 编辑于 2021-11-21 10:22:52">2021-11-6 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							2.4k 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							11 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				
-概述：
-
-
-
-线段树是算法竞赛中常用的数据结构（虽然考场中很少用，毕竟调起来麻烦，区间求和用树状树组还是更加方便代码也短）。
-
-
-
-线段树可以在O(logN)的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作。简略的描述一下算法思路，线段树是一个二叉树，树的每一个节点存储的都是一个区间内的值（根据具体的题...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/10/22/2021-10-22-%E5%86%B3%E5%BF%83/">2021-10-22</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-10-22 0:00:00 | 编辑于 2021-10-23 22:03:20">2021-10-22 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							23 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				2021.10.22.12:48:20 目送他人出发NOI，在此下定决心，明年，一定。
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/OI/" rel="tag">OI</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/10/18/2021-10-18-%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/">OJ1223猴子选大王题解</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-10-18 0:00:00 | 编辑于 2021-11-28 11:15:14">2021-10-18 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							227 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				题目 猴群一共有 n 只猴子，现在它们要选出大王，具体方法是：所有猴子按位置 1- n 围坐成一圈，从第 1 个位置开始按顺序 1-m 报数，“1、2、3……m - 1、m”。报到 m 的猴子就要离开此圈，它下一个位置重新 1-m 报数。这样依次下来，直到只剩下最后一只猴子，则该猴子为大王。
- 你作为一只聪明的猴子，为了成为大王，最开始要坐在哪个位...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/10/18/2021-11-21-linux%E5%AF%B9%E6%8B%8Dc++/">linux对拍c++</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-10-18 0:00:00 | 编辑于 2021-11-21 10:22:41">2021-10-18 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							785 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							3 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				
-概述
-
-
-
-以前对于对拍感觉不是很必要，但是今天在刷二分题目的时候对于二分的边界一直都不是很懂。所以在思考如何考虑这个问题的时候，想到另辟蹊径。既然我自己不知道二分是不是写对了，就让电脑来让我判断。所以我决定去网上学习对拍。
-
-
-
-        但是网上的对拍虽然可以实现判断程序的对错，但是却不能给出确切的每个程序的运行时间。在网上找的一些是用...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/10/15/2021-10-15-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">进制转换</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-10-15 0:00:00 | 编辑于 2021-10-23 22:03:20">2021-10-15 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							322 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				1 超硬核进制转换
-$　$众所周知，将二进制转化为十进制数十分的方便，而用十进制转换为二进制时，有一种方法，十分的方便．只需要将原数不断除以二的余数写下来后倒着遍历一遍就是二进制了。
-例如 ：   $ 　　$$7/2=3…1 $
-   $ 　　$$3/2=1…1 $
- $ 　　$$1/2=0…1 $
- $ 　　$$所以7的二进制表示为111$
-  ...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a>
-		</div>
-	
-</article>
-
-
-	<article class="post card bg-white shadow-sm border-0 ">
-	<header class="post-header text-center">
-		
-		<a class="post-title" href="/2021/10/05/2021-10-05-%E9%9B%86%E8%AE%AD%E4%BB%A3%E7%A0%812021.10.5/">2021.10.05集训</a>
-		<div class="post-meta">
-			
-						
-						<div class="post-meta-detail post-meta-detail-time">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2021-10-5 0:00:00 | 编辑于 2021-10-24 9:34:15">2021-10-5 0:00
-							</time>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-categories">
-							<i class="fa fa-bookmark-o" aria-hidden="true"></i>
-							<a class="post-meta-detail-catagory-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-book" aria-hidden="true"></i>
-							<span id="busuanzi_container_page_pv">
-								阅读<span id="busuanzi_value_page_pv"></span>次
-							</span>
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-words">
-							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							214 字
-						</div>
-					
-						
-							<div class="post-meta-devide">|</div>
-						
-						<div class="post-meta-detail post-meta-detail-readingtime">
-							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
-							1 分钟
-						</div>
-					
-		</div>
-		
-	</header>
-
-	<div class="post-content">
-		
-			
-				T1Stone.
-1234567891011121314151617181920212223242526#include &lt;iostream&gt;#include &lt;stdio.h&gt;#include &lt;algorithm&gt;using namespace std;double ans=0;long long n;dou...
-			
-		
-	</div>
-
-	
-		<div class="post-tags">
-			<i class="fa fa-tags" aria-hidden="true"></i>
-			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/c/" rel="tag">c++</a>
-		</div>
-	
-</article>
-
-
-
-<nav><ul class="pagination"><li class="page-item active"><span class="page-link" style="cursor: default;">1</span></li><li class="page-item"><a class="page-link" href="/archives/2021/page/2/">2</a></li><li class="page-item"><a aria-label="Next Page" class="page-link" href="/archives/2021/page/2/"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li></ul></nav><nav><ul class="pagination pagination-mobile"><li class="page-item active"><span class="page-link" style="cursor: default;">1</span></li><li class="page-item"><a class="page-link" href="/archives/2021/page/2/">2</a></li><li class="page-item"><a aria-label="Next Page" class="page-link" href="/archives/2021/page/2/"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li></ul></nav>
-
-			
 		
 		
 
